@@ -1,10 +1,9 @@
-<?php include('conf/conf.php');
-?>
+<?php include ('conf/conf.php');?>
 <!DOCTYPE html>
 <html style="background-color:white;">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="stylelogin.css">
+<link rel="stylesheet" href="style/stylelogin.css">
 </head>
 <body>
 <div > 

@@ -1,5 +1,7 @@
 <?php
-include("conf.php");
+require('functions.php');
+$response = array("error" => FALSE);
+
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	
   $name = htmlspecialchars($_POST["name"]);
@@ -9,27 +11,35 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   $password = htmlspecialchars($_POST["password"]);
   $attribute=htmlspecialchars($_POST["attribute"]);
 
-	$CheckSQL = "SELECT * FROM users WHERE email='$email'";
- 
-	$check = mysqli_fetch_array(mysqli_query($con,$CheckSQL));
- 
-	if(isset($check)){
-
-	echo 'Email Already Exist';
-
-	}
-	else{
-  	$query = "INSERT INTO users(id,name,lname,phone,email,password,attribute) VALUES (NULL,'$name','$lname','$phone','$email','$password','$attribute')";
-  	$result=mysqli_query($con,$query);
-	
-	if($result){
-		
-		$_SESSION['email']=$email;
+	if(emailExists($email)){
+        $response["error"] = TRUE;
+        $response["error_msg"] = "Email already exists with ".$email;
+        json_encode($response);
 		header('location:../login.php');
-		}else{
-		header('location:../createaccount.php');
-		
-	}
-}}
-mysqli_close($con);
+	}else {
+
+        $user = storeUser($name,$lname,$phone,$email,$password,$attribute);
+        if ($user) {
+            $response["error"] = FALSE;
+            $response["user"]["id"] = $user["id"];
+			$response["user"]["name"] = $user["name"];
+			$response["user"]["lname"] = $user["lname"];
+			$response["user"]["email"] = $user["email"];
+            $response["user"]["password"] = $user["password"];
+            $response["user"]["attribute"] = $user["attribute"];
+			json_encode($response);
+			$_SESSION['email']=$email;
+			header('location:../homelogin.php');
+		} else {
+				$response["error"] = TRUE;
+				$response["error_msg"] = "Unknown error occurred!";
+				json_encode($response);
+				header('location:../createaccount.php?');
+			}
+    }
+
+
+
+}
+	mysqli_close($con);
 ?>

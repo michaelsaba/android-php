@@ -1,17 +1,18 @@
-
 <!DOCTYPE html>
 <html>
-
+	<head>
 <title>HELPATH</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
-</style>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+	</style>
+	<script src="jquery.js"></script>
+</head
 <body class="w3-theme-l5">
 
 <div class="w3-top">
@@ -26,44 +27,50 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   <div class="w3-row">   
     <!-- Middle Column -->
     <div class="w3-col m7;max width:1200px">
-		<div style="padding:20px;width:50%;margin-left:550px;border:3px">
+		<div style="padding:20px;width:50%;margin-left:450px;border:3px">
 		<input id="myInput"  type="text0" name="myCountry" placeholder="Search...">
 		</div>
-
-      <div id="" class="w3-row-padding" >
+		
+		
+		<script>
+			$(document).ready(function(){
+			   $("#feed").load("newsfeed.php");
+			   $("#loader").hide();
+			   setInterval(function(){
+				$("#feed").load("newsfeed.php");
+			   },1000);
+			
+			});
+		</script>
+	
+      <div id="pre_box" class="w3-row-padding" >
+	  <div id="status_error"></div>
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">your need/offer</h6>
-			  <form action="conf/post.php" method="post">
-              <input style="width:1200px;text-align:center;"id="myinput" name="text"type="text" placeholder="desctiption"> 
-				<button type="submit" name="submit" value="submit" id="submit"class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button>
-			</form>
+			     <input style="display:inline-block;min-width:500px;text-align:center;"id="status_box" name="text"type="text" placeholder="Your Text"> 
+				<button type="submit" name="submit" value="submit" id="status_btn"class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button>
 			</div>
           </div>
         </div>
       </div>
-      <div id=""class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <span id="container"class="w3-right w3-opacity"><script>document.getElementById("myInput");</script></span>
-        <h4><script>gettime();</script></h4><br>
+	  
+		<div id="feed">
+			<div id="loader">LOADING...</div>
+		</div>
+		
+		<script src="post_status.js"></script>
+	  
+     <!-- <div id=""class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <span id="container"class="w3-right w3-opacity"></span>
+        <h4><h4><br>
         <hr class="w3-clear">
         <p ></p>
          <button onclick="" id="number" type="buttom" class="w3-button w3-theme-d2 w3-margin-bottom">call</button>
-      </div>
-       
-
-<!--<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">32 min</span>
-        <h4>Angie Jane</h4><br>
-        <hr class="w3-clear">
-        <p>Have you seen this?</p>
-        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div> 
-       -->
+      </div>-->
+		
+      
     <!-- End Middle Column -->
     </div>
     
@@ -74,13 +81,6 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 </div>
 <br>
 
-<!--
-document.getElementById("post").onclick = function() {
-  var cont = document.getElementById("container");
-  var sec = document.getElementById("myinput");
-  cont.appendChild(sec.cloneNode(true));
-}
--->
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16">

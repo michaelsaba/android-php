@@ -1,16 +1,22 @@
 <?php
-include('conf.php');
-if($_SERVER['REQUEST_METHOD']=='POST'){
-		$text=htmlspecialchars($_POST["text"]);
-		$mail=$_SESSION['email'];
-		$sql="INSERT INTO posts(post_id,text,email,posted_at) VALUES (NULL,'$text','$mail',)";
-			$result = mysqli_query($con,$sql);
-			if($result){
-			echo"post in databse";}
-			
-		
-		
-
-}
+require('conf.php');
+	global $con;
+	$text=$_POST['t'];	
+	if(!$text){
+	echo" <p>ERROR</p>";}
+	else{
 	
-?>	
+	mysqli_query($con,"INSERT INTO posts(post_id,text,email,posted_at) VALUES(NULL,'$text','anthinysaade@gmail.com',GETDATE())";
+	}
+	?>
+	<script src="jquery.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("#status_box").val("");
+	});
+	</script>
+		
+	
+	
+	
+

@@ -1,8 +1,8 @@
-
+<? include('conf/conf.php');?>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="stylecreate.css">
+<link rel="stylesheet" href="style/stylecreate.css">
 </head>
 <body>
 <div >
