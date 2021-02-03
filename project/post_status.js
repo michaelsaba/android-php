@@ -1,16 +1,14 @@
 $(document).ready(function(){
 	$("#status_btn").click(function(){
-	var text=$("#status_box").val();
-		
-		data="t="+text;
-		
+	var status=$("#status_box").val();
+			
 		$.ajax({
 		method:"post",
-		url:"conf/post.php?",
-		data:data,
-		success:function(data)
+		url:"./post.php?",
+		data:status,
+		success:function(status)
 		{
-					$("#status_erro").html(data);
+		   $("#status_erro").html(status);
 		}
 		
 		

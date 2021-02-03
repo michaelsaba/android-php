@@ -10,7 +10,7 @@
   <form class="modal-content animate" action="conf/test.php" method="post">
     <div class="imgcontainer">
       <span class="close" title="Close Modal"><a href="home.php">&times;</a></span>
-      <img src="logo.jpg"	alt="logo" class="avatar">
+      <img src="style/logo.jpg"	alt="logo" class="avatar">
     </div>
 
     <div class="container">

@@ -20,7 +20,25 @@
 
 	}
 
+	function storePost($text,$email){
+		global $con;
+		$sql="INSERT INTO posts(post_id,text,email,posted_at) VALUES(NULL,'$text','$email',curtime())";
+		$result=mysqli_query($con,$sql);
+		if($result){
+			$post = "SELECT * FROM posts";
+			$res = mysqli_query($con, $post);
 
+			while ($post = mysqli_fetch_assoc($res)){
+				return $post;
+			}
+		}else{
+				return false;
+			}
+
+	
+	
+}
+	
 	function getUserByEmailAndPassword($email, $password){
 		global $con;
 		$query = "SELECT * from users where email = '$email' and password = '$password'";
