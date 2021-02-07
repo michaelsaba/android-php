@@ -26,7 +26,7 @@
   <div class="w3-row">   
     <!-- Middle Column -->
     <div class="w3-col m7;max width:1200px">
-		<div style="padding:20px;width:50%;margin-left:450px;border:3px">
+		<div style="padding:20px;width:50%;border:5px">
 		<input id="myInput"  type="text0" name="myCountry" placeholder="Search...">
 		</div>
 		
@@ -48,7 +48,7 @@
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">your need/offer</h6>
 			     <form method="POST" action="conf/post.php">
-				<input style="display:inline-block;min-width:500px;text-align:center;"id="status_box" name="text"type="text" placeholder="Your Text">
+				<input style="display:inline-block;min-width:40;text-align:center;"id="status_box" name="text"type="text" placeholder="Your Text">
 				<button  name="submit" value="submit" id="status_btn"class="w3-button w3-theme"><i class="fa fa-pencil"></i>Post</button>
 			</div>
           </div>

@@ -1,6 +1,6 @@
 <?php
 require('functions.php');
-$response = array("error" => FALSE);
+$response =array();
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	
@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $user = storeUser($name,$lname,$phone,$email,$password,$attribute);
         if ($user) {
             $response["error"] = FALSE;
-            $response["user"]["id"] = $user["id"];
+            $response["user"]["phone"] = $user["phone"];
 			$response["user"]["name"] = $user["name"];
 			$response["user"]["lname"] = $user["lname"];
 			$response["user"]["email"] = $user["email"];
@@ -37,8 +37,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 				header('location:../createaccount.php?');
 			}
     }
-
-
 
 }
 	mysqli_close($con);
