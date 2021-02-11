@@ -1,6 +1,6 @@
 <?php
 require('functions.php');
-$response =array();
+$response = array("error" => FALSE);
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	
@@ -26,7 +26,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 			$response["user"]["lname"] = $user["lname"];
 			$response["user"]["email"] = $user["email"];
             $response["user"]["password"] = $user["password"];
-            $response["user"]["attribute"] = $user["attribute"];
 			json_encode($response);
 			$_SESSION['email']=$email;
 			header('location:../homelogin.php');

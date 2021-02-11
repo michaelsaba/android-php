@@ -1,7 +1,7 @@
 <?php
 require('functions.php');
 $response = array("error" => FALSE);
-if(isset($_POST['submit'])){
+if($_SERVER['REQUEST_METHOD']=='POST'){
 
     $email = htmlspecialchars($_POST["email"]);
     $password =htmlspecialchars($_POST["password"]);
@@ -9,8 +9,7 @@ if(isset($_POST['submit'])){
 	$user = getUserByEmailAndPassword($email, $password);
       if($user!=false){
 		$response["error"] = FALSE;
-		$response["user"]["id"] = $user["id"];
-        $response["user"]["email"] = $user["email"];
+		$response["error_msg"] = "user found" ;
 		json_encode($response);
 		$_SESSION['id']=$id;
 		$_SESSION['email'] = $email;
@@ -23,7 +22,7 @@ if(isset($_POST['submit'])){
 		else{
 		$response["error"] = TRUE;
         $response["error_msg"] = "Wrong email or password entered! Please try again!";
-        echo json_encode($response);			
+        echo (json_encode($response));			
             echo "Invalid email and password";
         }
 
