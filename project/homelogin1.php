@@ -1,6 +1,7 @@
 <?php
 require("conf/session.php");
 require("conf/conn.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,16 +32,16 @@ require("conf/conn.php");
     <!-- Middle Column -->
     <div class="w3-col m7;max width:1200px">
 		<div style="padding:20px;width:50%;border:5px">
-		<form method="POST" action="homelogin.php">
+		<form method="POST" action="newsfeed.php">
 		<input id="myInput"  type="search" name="search" placeholder="Search...">
 		<button  name="submit" value="submit" id="search_btn"class="w3-button w3-theme"><i class="fa fa-search"></i></button></form>
 		</div>
 		<script>
 			$(document).ready(function(){
-			   $("#feed").load("newsfeed.php");
+			   $("#feed").load("newsfeed1.php");
 			   $("#loader").hide();
 			   setInterval(function(){
-				$("#feed").load("newsfeed.php");
+				$("#feed").load("newsfeed1.php");
 			   },1000);
 			
 			});
@@ -59,9 +60,10 @@ require("conf/conn.php");
           </div>
         </div>
       </div>	
-	  <div style="width:20%;padding:3px;margin:0 auto">
-	  <a href="homelogin.php"class="w3-button w3-tiny w3-theme">page 1</a>
-		<a href="homelogin1.php"class="w3-button w3-tiny w3-theme">page 2</a></div>
+	    <div style="width:20%;padding:3px;margin:0 auto">
+		<a id="home1" href="homelogin.php"class="w3-button w3-tiny w3-theme">page 1</a>
+		<a id="home2"href="homelogin1.php"class="w3-button w3-tiny w3-theme">page 2</a>
+		</div>
 	  		
 		
 	  

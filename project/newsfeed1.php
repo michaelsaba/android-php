@@ -1,7 +1,7 @@
 <?php  include('conf/conn.php');
 	include('conf/session.php');
 	global $con;
-	$sql=mysqli_query($con,"SELECT * FROM `posts` where attribute <> ".$_SESSION['attribute']." ORDER BY posted_at DESC "); 
+	$sql=mysqli_query($con,"SELECT * FROM `posts` where attribute= ".$_SESSION['attribute']." ORDER BY posted_at DESC "); 
 		$emparray['success']=1;
 		$post = array();
 			while($row=mysqli_fetch_assoc($sql)){

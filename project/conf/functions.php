@@ -1,4 +1,4 @@
-<?php require("conf.php");?>
+<?php require("conn.php");?>
 <?php
 	
 	function storeUser($name, $lname,$phone,$email,$password,$attribute){
@@ -22,10 +22,10 @@
 		json_encode($emparray);
 	}
 
-	function storePost($text,$email){
+	function storePost($text,$attribute,$email){
 		global $con;
 		$emparray=array();
-		$sql="INSERT INTO posts(post_id,text,email,posted_at) VALUES(NULL,'$text','$email',curtime())";
+		$sql="INSERT INTO posts(post_id,text,attribute,email,posted_at) VALUES(NULL,'$text','$attribute','$email',curtime())";
 		$result=mysqli_query($con,$sql);
 		if($result){
 			$emparray["success"]=true;

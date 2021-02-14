@@ -1,10 +1,10 @@
-<?php	require('functions.php');
+<?php	include('functions.php');
+	include('session.php');
 	global $con;
-	
+
 	$text=$_POST['text'];
-	$email=$_SESSION['email'];
 	$emparray=array();	
-	$post=storePost($text,$email);
+	$post=storePost($text,$_SESSION['attribute'],$_SESSION['email']);
 	if($post!=false){
 		$emparray["success"]=true;
 	header('location:../homelogin.php');

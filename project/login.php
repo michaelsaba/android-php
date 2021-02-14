@@ -1,4 +1,3 @@
-<?php include ('conf/conf.php');?>
 <!DOCTYPE html>
 <html style="background-color:white;">
 <head>
@@ -20,7 +19,7 @@
       <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required>
         
-      <button type="submit" name="submit" value="submit" id="submit">Login</button>
+      <button type="submit" name="home1" value="submit" id="home1">Login</button>
        </div>
 
     <div class="container" style="background-color:#f1f1f1">
