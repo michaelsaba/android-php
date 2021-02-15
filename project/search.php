@@ -1,8 +1,8 @@
 <?php
 require("conf/session.php");
 require("conf/conn.php");
-
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -32,48 +32,34 @@ require("conf/conn.php");
     <!-- Middle Column -->
     <div class="w3-col m7;max width:1200px">
 		<div style="padding:20px;width:50%;border:5px">
-	<form method="POST" action="search.php">
+		<form method="POST" action="">
 		<input   type="search" id="search"name="search" placeholder="Search...">
 		<button  name="submit" value="submit" id="search_btn"class="w3-button w3-theme"><i class="fa fa-search"></i></button></form>
 		</div>
-		<script>
-			$(document).ready(function(){
-			   $("#feed").load("newsfeed1.php");
-			   $("#loader").hide();
-			   setInterval(function(){
-				$("#feed").load("newsfeed1.php");
-			   },1000);
 			
-			});
-		</script> 
-	
-      <div id="pre_box" class="w3-row-padding" >
-	  <div id="status_error"></div>
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">your need/offer</h6>
-			     <form method="POST" action="conf/post.php">
-				<input style="display:inline-block;min-width:40;text-align:center;"id="status_box" name="text"type="text" placeholder="Your Text">
-				<button  name="submit" value="submit" id="status_btn"class="w3-button w3-theme"><i class="fa fa-pencil"></i>Post</button>
-			</div>
-          </div>
-        </div>
-      </div>	
 	    <div style="width:20%;padding:3px;margin:0 auto">
 		<a id="home1" href="homelogin.php"class="w3-button w3-tiny w3-theme">page 1</a>
 		<a id="home2"href="homelogin1.php"class="w3-button w3-tiny w3-theme">page 2</a>
 		</div>
 	  		
+		<?php    
+		global $con;
+		$text = htmlspecialchars($_POST['search']);
+		$sql=mysqli_query($con,"SELECT * FROM `posts` WHERE text LIKE '%".$text."%'"); 
+		while ($row = mysqli_fetch_assoc($sql)){
+			$text=($row['text']);
+			$date=($row['posted_at']);
+			$email=($row['email']);		
+		echo "<div class='w3-container w3-card w3-white w3-round w3-margin'><br>
+        <span class='w3-right w3-opacity'>".$date."</span>
+        <h4><a href='mailto:".$email."'>".$email."</a></h4>
+        <hr class='w3-clear'>
+        <p>".$text."</p>
+		</div>";
+		}
 		
+		?>
 	  
-     <div id="feed"class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <span id="container"class="w3-right w3-opacity"></span>
-        <h4><h4><br>
-        <hr class="w3-clear">
-        <p ></p>
-      </div>
-		<script src="post_status.js"></script>
       
     <!-- End Middle Column -->
     </div>

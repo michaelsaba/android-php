@@ -10,8 +10,6 @@ $(document).ready(function(){
 		{
 		   $("#status_erro").html(status);
 		}
-		
-		
 		});
 		
 	

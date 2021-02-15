@@ -2,7 +2,7 @@
 	include('session.php');
 	global $con;
 
-	$text=$_POST['text'];
+	$text=htmlspecialchars($_POST['text']);
 	$emparray=array();	
 	$post=storePost($text,$_SESSION['attribute'],$_SESSION['email']);
 	if($post!=false){

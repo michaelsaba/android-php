@@ -1,6 +1,6 @@
 <?php
 include("conn.php");
-if(isset($_POST['btnlogin'])){
+if(isset($_POST['home1'])){
 
     $email = htmlspecialchars($_POST["email"]);
     $password =htmlspecialchars($_POST["password"]);

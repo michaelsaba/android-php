@@ -18,5 +18,5 @@
 		}
 		$emparray['post']=$post;
 		
-	   json_encode($emparray);
+	json_encode($emparray);
 ?>
