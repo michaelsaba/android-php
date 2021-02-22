@@ -1,14 +1,16 @@
-<?php 
-include('aconfig.php');
-$stmt=$con->prepare("SELECT email,text,posted_at FROM posts");
-$stmt->execute();
-$stmt->bind_result($email,$text,$posted_at);
-$feed=array();
-while($stmt->fetch()){
-$post=array();
-$temp['email']=$email;
-$temp['text']=$text;
-$temp['posted_at']=$posted_at;
-array_push($post,$feed);
+<?php
+
+require_once('aconf.php');
+$sql = "SELECT email,text,posted_at FROM posts ORDER BY posted_at DESC ";
+if ($result = mysqli_query($conn,$sql))
+  {
+   $emparray = array();
+   while($row=mysqli_fetch_assoc($result))
+       $emparray[] = $row;
+
+  echo(json_encode($emparray));
+
+  mysqli_close($conn);
 }
-json_encode($feed);?>
+
+?> 

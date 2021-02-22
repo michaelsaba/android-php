@@ -1,4 +1,5 @@
-<? include('conf/conf.php');?>
+<? include('conf/conf.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
