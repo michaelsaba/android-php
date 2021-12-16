@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddPost">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:id="@+id/text"
+        android:textSize="10dp"
+        android:hint="Your Post"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:layout_marginTop="162dp"
+        android:hint="Enter your email"
+        android:id="@+id/email"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="240dp"
+        android:inputType="text"
+        android:hint="Enter your attribute helpseeker for your need requestresponder to help"
+        android:id="@+id/attribute"/>
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/attribute"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentLeft="true"
+        android:backgroundTint="#757575"
+        android:text="cancel" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attribute"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#757575"
+        android:id="@+id/post"
+        android:layout_alignParentRight="true"
+        android:text="Post"
+        android:layout_marginRight="20dp"/>
+</RelativeLayout>
